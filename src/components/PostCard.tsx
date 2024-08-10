@@ -1,6 +1,16 @@
 import React from "react";
 import { ChatIcon } from "../assets/Icon";
 
+/**
+ * Represents a post card component.
+ * @param name - The name of the post author.
+ * @param time - The time the post was created.
+ * @param content - The content of the post.
+ * @param comments - The number of comments on the post.
+ * @param avatar - The URL of the author's avatar.
+ * @param emoji - Optional emoji associated with the post.
+ * @param onClick - Function to handle click events on the post.
+ */
 interface PostProps {
   name: string;
   time: string;

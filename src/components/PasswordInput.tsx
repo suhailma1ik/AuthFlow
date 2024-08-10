@@ -1,15 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * Props for the PasswordInput component.
+ * @interface PasswordInputProps
+ */
 interface PasswordInputProps {
+  /** The label text for the password input field */
   label?: string;
+  /** The placeholder text for the password input field */
   placeholder?: string;
+  /** JSX Element to be rendered as the right icon (e.g., for password visibility toggle) */
   rightIcon?: JSX.Element;
+  /** The type of the input field, typically 'password' or 'text' */
   type?: string;
+  /** Function to be called when the right icon is clicked */
   onRightIconClick?: () => void;
+  /** Whether to show the "Forgot password?" link */
   isForgetPassword?: boolean;
 }
 
+/**
+ * PasswordInput component for rendering a styled password input field with additional features.
+ *
+ * This component creates a password input with a customizable label, placeholder, and right icon.
+ * It also includes an optional "Forgot password?" link and the ability to toggle password visibility.
+ *
+ * @component
+ * @example
+ * ```jsx
+ * <PasswordInput
+ *   label="Password"
+ *   placeholder="Enter your password"
+ *   rightIcon={<EyeIcon />}
+ *   type="password"
+ *   onRightIconClick={() => setShowPassword(!showPassword)}
+ *   isForgetPassword={true}
+ * />
+ * ```
+ */
 const PasswordInput: React.FC<PasswordInputProps> = ({
   label,
   placeholder,

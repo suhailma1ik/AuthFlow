@@ -3,13 +3,21 @@ import CreatePost from "../../components/CreatePost";
 import Post from "../../components/PostCard";
 import Modal from "../../components/Modal";
 
+/**
+ * Renders the Home component with user information and posts.
+ *
+ * @return {JSX.Element} The rendered Home component.
+ */
 const Home: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoginOrSignup, setIsLoginOrSignup] = useState(true);
+
+  // Function to close the modal
   const closeModal = () => {
     setIsLoginOrSignup(false);
     setIsModalOpen(false);
   };
+
   return (
     <>
       <Modal

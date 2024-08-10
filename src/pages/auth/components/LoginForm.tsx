@@ -5,20 +5,55 @@ import PasswordInput from "../../../components/PasswordInput";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
+/**
+ * Props for the LoginForm component.
+ * @interface LoginFormProps
+ */
 interface LoginFormProps {
+  /** Optional function to handle closing the form */
   onCloseClick?: () => void;
+  /** Optional function to toggle between login and signup views */
   setIsLoginOrSignup?: (value: boolean) => void;
 }
 
+/**
+ * LoginForm component for rendering a user login interface.
+ *
+ * This component displays a form with email/username and password inputs,
+ * along with a login button and a link to register. It can be used both as
+ * a standalone page and as a modal component.
+ *
+ * @component
+ * @example
+ * ```jsx
+ * const handleClose = () => {
+ *   console.log('Form closed');
+ * };
+ *
+ * const toggleLoginSignup = (isLogin: boolean) => {
+ *   console.log(isLogin ? 'Switched to Login' : 'Switched to Signup');
+ * };
+ *
+ * return <LoginForm onCloseClick={handleClose} setIsLoginOrSignup={toggleLoginSignup} />;
+ * ```
+ */
 const LoginForm: React.FC<LoginFormProps> = ({
   onCloseClick,
   setIsLoginOrSignup,
 }) => {
+  /** State to toggle password visibility */
   const [showPassword, setShowPassword] = useState(false);
+
+  /** Hook for programmatic navigation */
   const navigate = useNavigate();
+
+  /**
+   * Navigates to the home page when called.
+   */
   const navigateToHome = () => {
     navigate("/home");
   };
+
   return (
     <>
       {!onCloseClick && (
