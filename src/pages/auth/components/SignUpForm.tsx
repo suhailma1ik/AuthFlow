@@ -3,7 +3,7 @@ import { CloseIcon, LoginIcon } from "../../../assets/Icon";
 import CustomInput from "../../../components/CustomInput";
 import PasswordInput from "../../../components/PasswordInput";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface SignUpFormProps {
   onCloseClick?: () => void;
@@ -15,7 +15,11 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
   setIsLoginOrSignup,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
+  const navigateToHome = () => {
+    navigate("/home");
+  };
   return (
     <>
       {!onCloseClick && (
@@ -64,7 +68,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
             />
 
             <button
-              type="submit"
+              onClick={() => navigateToHome()}
               className="w-full px-4 py-2 text-white bg-lightBlue rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800"
             >
               Continue
